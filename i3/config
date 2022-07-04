@@ -59,7 +59,7 @@ set $accentColor #fad000
 bindsym $mod+Shift+q kill
 
 # start dmenu (a program launcher) with colors
-bindsym $mod+d exec "dmenu_run -nf '$white' -nb '#222244' -sb '#6943f6' -sf '$white' -fn 'monospace-18'"
+bindsym $mod+d exec "dmenu_run -nf '$white' -nb '#222244' -sb '#6943f6' -sf '$white' -fn 'monospace-12'"
 # A more modern dmenu replacement is rofi:
 # bindcode $mod+40 exec "rofi -modi drun,run -show drun"
 # There also is i3-dmenu-desktop which only displays applications shipping a
@@ -201,17 +201,22 @@ assign [instance="discord"] $ws10
 
 exec_always "killall -q polybar"
 exec_always "polybar 2>&1 | tee -a /tmp/polybar.log & disown"
+exec_always feh --bg-scale ~/.config/background/background.jpg
 
 exec google-chrome-stable
 exec spotify
 exec alacritty
 
+
+
 # colors
 # class                 border          bground         text    indicator       child_border
-client.focused          $primaryColor   $primaryColor   $white  $primaryColor   $primaryColor
+client.focused          $accentColor    $accentColor    $white  $accentColor    $accentColor
 client.focused_inactive $secondaryColor $secondaryColor $white  $secondaryColor $secondaryColor
 client.unfocused        $secondaryColor $secondaryColor $white  $secondaryColor $secondaryColor
 client.urgent           $accentColor    $accentColor    $which  $accentColor    $accentColor
 client.placeholder      $secondaryColor $secondaryColor $white  $secondaryColor $secondaryColor
 
 client.background       $primaryColor
+
+for_window [class="^.*"] border pixel 1
