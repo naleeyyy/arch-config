@@ -199,6 +199,7 @@ assign [class="Google-chrome"] $ws1
 for_window [class="Spotify"] move to workspace $ws9
 assign [instance="discord"] $ws10
 
+#starting programs
 exec_always "killall -q polybar"
 exec_always "polybar 2>&1 | tee -a /tmp/polybar.log & disown"
 exec_always feh --bg-scale ~/.config/background/background.jpg
@@ -206,10 +207,10 @@ exec_always feh --bg-scale ~/.config/background/background.jpg
 exec google-chrome-stable
 exec spotify
 exec alacritty
-
-
+exec discord
 
 # colors
+
 # class                 border          bground         text    indicator       child_border
 client.focused          $accentColor    $accentColor    $white  $accentColor    $accentColor
 client.focused_inactive $secondaryColor $secondaryColor $white  $secondaryColor $secondaryColor
